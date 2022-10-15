@@ -22,7 +22,8 @@ public class Simulation : MonoBehaviour
 	protected List<Stick> sticks;
 	int[] order;
 
-	protected virtual void Start()
+
+    protected virtual void Start()
 	{
 
 		if (points == null)
@@ -55,16 +56,23 @@ public class Simulation : MonoBehaviour
 			for (int s = 0; s < sticks.Count; s++)
 			{
 				Stick stick = sticks[order[s]];
-				if (stick.dead)
-				{
-					continue;
-				}
 
 				Vector2 stickCentre = (stick.pointA.position + stick.pointB.position) / 2;
 				Vector2 stickDir = (stick.pointA.position - stick.pointB.position).normalized;
 				float length = (stick.pointA.position - stick.pointB.position).magnitude;
 
-				if (length > stick.length || constrainStickMinLength)
+
+                if (stick.dead)
+                {
+
+                    if (length > stick.length*Random.Range(0, 1000))
+					{
+                        stick.dead = false;
+                    }
+					continue;
+                }
+
+                if (length > stick.length || constrainStickMinLength)
 				{
 					if (!stick.pointA.locked)
 					{
@@ -90,15 +98,18 @@ public class Simulation : MonoBehaviour
 	public class Stick
 	{
 		public Point pointA, pointB;
-		public float length;
-		public bool dead;
+		public float length0;
+        public float length;
+        public bool dead;
 
 		public Stick(Point pointA, Point pointB)
 		{
 			this.pointA = pointA;
 			this.pointB = pointB;
-			length = Vector2.Distance(pointA.position, pointB.position);
-		}
+            length0 = Vector2.Distance(pointA.position, pointB.position);
+			length = length0;
+
+        }
 	}
 
 

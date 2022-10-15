@@ -149,9 +149,12 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6866193}
-  m_Text: Right click drag to cut cloth
+  m_Text: 'Right click drag to cut web
+
+    If the simulation gets stuck, cut it
+    free to fix it'
   m_OffsetZ: 0
-  m_CharacterSize: 0.075
+  m_CharacterSize: 0.05
   m_LineSpacing: 1
   m_Anchor: 0
   m_Alignment: 0
@@ -213,7 +216,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6866193}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.62, y: -5.19, z: -1.9466374}
+  m_LocalPosition: {x: -5, y: -2.75, z: -1.9466374}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -348,16 +351,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e40e210f75700ff4396af454d68137d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointRadius: 0.06
+  pointRadius: 0.001
   stickThickness: 1
   pointCol: {r: 1, g: 1, b: 1, a: 0}
   fixedPointCol: {r: 1, g: 0.40000004, b: 0.40000004, a: 0}
-  lineCol: {r: 0.4811321, g: 0.4811321, b: 0.4811321, a: 0}
+  lineCol: {r: 0, g: 1, b: 0.96275425, a: 0}
   lineDrawCol: {r: 0.14117648, g: 0.14117648, b: 0.14117648, a: 0}
   autoStickMode: 0
   constrainStickMinLength: 1
   simulating: 1
-  gravity: 10
+  gravity: 1
   solveIterations: 1
-  numPoints: {x: 30, y: 15}
-  boundsSize: {x: 17.5, y: 9.5}
+  numPoints: {x: 80, y: 25}
+  boundsSize: {x: 15, y: 10}
